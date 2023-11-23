@@ -18,8 +18,12 @@
           packages = rec {
             default = audio-from-yt;
             audio-from-yt = pkgs.writeShellApplication {
-              name = "audio-from-yt";
+              name = "audio-from-yt-wrapper";
               text = "nix run ./audio-from-yt";
+            };
+            rust-flake = pkgs.writeShellApplication {
+              name = "rust-flake-wrapper";
+              text = "cp ./flake/rust/flake.nix .";
             };
           };
           devShells = {
