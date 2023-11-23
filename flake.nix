@@ -15,12 +15,11 @@
       perSystem = { config, self', inputs', pkgs, system, ... }:
         let
         in {
-          packages = {
-            # add build phases here
+          packages = rec {
             default = audio-from-yt;
             audio-from-yt = pkgs.writeShellApplication {
               name = "audio-from-yt";
-              text = "nix run .#audio-from-yt";
+              text = "nix run ./audio-from-yt";
             };
           };
           devShells = {
